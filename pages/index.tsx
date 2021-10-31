@@ -1,110 +1,21 @@
 import { Layout } from '@components/common'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { FadeInWhenVisible } from '@components/motion'
-
 import {
   ShieldCheckIcon,
   TruckIcon,
   SparklesIcon,
 } from '@heroicons/react/outline'
+import { motion } from 'framer-motion'
+
+import { featuredCollections, products } from '@config/products'
+import { variants } from '@config/motion'
+
+import { filterByValue } from '@lib/collections'
+
+import { FadeInWhenVisible } from '@components/motion'
 
 import { ProductCard } from '@components/product'
-
-const decorations = [
-  {
-    id: 1,
-    name: 'Bali stone decorations',
-    color: 'Natural',
-    price: '$25',
-    href: '/',
-    image: {
-      src: '/products/decorations/bali-stone-decorations.png',
-      alt: 'Bali stone decorations.',
-    },
-  },
-  {
-    id: 2,
-    name: 'Buddha status with incense and candle',
-    color: 'Natural',
-    price: '$75',
-    href: '/',
-    image: {
-      src: '/products/decorations/buddha-statue-with-incense-and-candle.jpg',
-      alt: 'Buddha status with incense and candle.',
-    },
-  },
-  {
-    id: 3,
-    name: 'Handmade macrame sign',
-    color: 'Natural',
-    price: '$25',
-    href: '/',
-    image: {
-      src: '/products/decorations/handmade-macrame-sign.jpg',
-      alt: 'Handmade macrame sign.',
-    },
-  },
-  {
-    id: 4,
-    name: 'Live laugh surf sign',
-    color: 'Natural',
-    price: '$50',
-    href: '/',
-    image: {
-      src: '/products/decorations/live-laugh-surf-sign.jpg',
-      alt: 'Live laugh surf sign.',
-    },
-  },
-]
-
-const trendingProducts = [
-  {
-    id: 1,
-    name: 'Green foliage with wooden vases',
-    color: 'Natural',
-    price: '$75',
-    href: '/',
-    image: {
-      src: '/products/vases/green-foliage-with-wooden-vases.jpg',
-      alt: 'Green foliage with wooden vases.',
-    },
-  },
-  {
-    id: 2,
-    name: 'Purple foliage with ceramic vase',
-    color: 'Natural',
-    price: '$100',
-    href: '/',
-    image: {
-      src: '/products/vases/purple-foliage-with-ceramic-vase.png',
-      alt: 'Purple foliage with ceramic vase.',
-    },
-  },
-  {
-    id: 3,
-    name: 'Clear glass vase with a wooden cup of tea',
-    color: 'Natural',
-    price: '$50',
-    href: '/',
-    image: {
-      src: '/products/vases/clear-glass-vase-with-a-wooden-cup-of-tea.png',
-      alt: 'Clear glass vase with a wooden cup of tea.',
-    },
-  },
-  {
-    id: 4,
-    name: 'Glass vase with green leafs',
-    color: 'Natural',
-    price: '$25',
-    href: '/',
-    image: {
-      src: '/products/vases/glass-vase-with-green-leafs.png',
-      alt: 'Glass vase with green leafs.',
-    },
-  },
-]
 
 const incentives = [
   {
@@ -127,24 +38,6 @@ const incentives = [
   },
 ]
 
-let easing = [0.6, -0.05, 0.01, 0.99]
-
-const fadeInUp = {
-  initial: {
-    y: 60,
-    opacity: 0,
-    transition: { duration: 0.6, ease: easing },
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.6,
-      ease: easing,
-    },
-  },
-}
-
 const stagger = {
   animate: {
     transition: {
@@ -154,6 +47,10 @@ const stagger = {
 }
 
 const Home = () => {
+  //Products.
+  const decorations = filterByValue(products, 'decorations')
+  const vases = filterByValue(products, 'vases')
+
   return (
     <motion.div initial='initial' animate='animate' exit={{ opacity: 0 }}>
       {/* Hero section */}
@@ -171,10 +68,7 @@ const Home = () => {
             />
           </div>
 
-          <motion.div
-            variants={fadeInUp}
-            className='relative flex flex-col items-center max-w-3xl px-6 py-32 mx-auto text-center sm:py-64 lg:px-0'
-          >
+          <div className='relative flex flex-col items-center max-w-3xl px-6 py-32 mx-auto text-center sm:py-64 lg:px-0'>
             <h1 className='text-4xl font-extrabold tracking-tight lg:text-6xl'>
               <span className='block text-black'>A better way to</span>
               <span className='block text-white drop-shadow'>
@@ -185,16 +79,16 @@ const Home = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
-            <Link href='/' passHref={true} scroll={false}>
+            <Link href='/products' passHref={true}>
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className='inline-block px-8 py-3 mt-8 text-base font-semibold text-black bg-white border border-transparent rounded-md bg-opacity-30 hover:bg-opacity-50'
               >
-                Explore
+                View Products
               </motion.a>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </FadeInWhenVisible>
 
@@ -270,7 +164,7 @@ const Home = () => {
               variants={stagger}
               className='grid grid-cols-2 mt-6 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-0 lg:gap-x-8'
             >
-              {trendingProducts.map((product) => (
+              {vases.map((product) => (
                 <ProductCard product={product} key={product.id} />
               ))}
             </motion.div>
@@ -337,7 +231,7 @@ const Home = () => {
                 >
                   {incentives.map((incentive) => (
                     <motion.div
-                      variants={fadeInUp}
+                      variants={variants.fadeInUp}
                       key={incentive.name}
                       className='text-center sm:flex sm:text-left lg:block lg:text-center'
                     >

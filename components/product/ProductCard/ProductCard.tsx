@@ -1,47 +1,21 @@
 import { FC } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+
 import { motion } from 'framer-motion'
+import { variants } from '@config/motion'
+
+import { ProductTypes } from '@config/products'
 
 interface Props {
   className?: string
-  product: Product
-}
-
-interface Product {
-  id: number
-  name: string
-  href: string
-  color: string
-  price: string
-  image: {
-    src: string
-    alt: string
-  }
-}
-
-let easing = [0.6, -0.05, 0.01, 0.99]
-
-const fadeInUp = {
-  initial: {
-    y: 60,
-    opacity: 0,
-    transition: { duration: 0.6, ease: easing },
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.6,
-      ease: easing,
-    },
-  },
+  product: ProductTypes
 }
 
 const ProductCard: FC<Props> = ({ className, product }) => {
   return (
     <motion.div
-      variants={fadeInUp}
+      variants={variants.fadeInUp}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className='relative group'

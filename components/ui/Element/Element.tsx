@@ -4,10 +4,9 @@ import s from './Element.module.css'
 
 interface Props {
   className?: string
+  label?: string
   type?: Type
   variant?: Variant
-  shadow?: boolean
-  clean?: boolean
   children?: any
 }
 
@@ -17,21 +16,20 @@ type Variant = 'white' | 'black' | 'gray'
 
 const Element: FC<Props> = ({
   className,
+  label,
   type = 'div',
   variant = 'white',
-  shadow = true,
-  clean = false,
   children,
 }) => {
   const Component: ComponentType<any> | string = type as any
+  const ariaLabel = label && `${label.toLowerCase().replace(' ', '-')}-heading`
 
   return (
     <Component
+      aria-labelledby={ariaLabel}
       className={cn(
         s.root,
         {
-          [s.shadow]: shadow,
-          'py-8 xl:py-12': !clean,
           'bg-white dark:bg-black': variant === 'white',
           'bg-black dark:bg-white': variant === 'black',
           'bg-accents-1 dark:bg-accents-8': variant === 'gray',
@@ -39,6 +37,11 @@ const Element: FC<Props> = ({
         className
       )}
     >
+      {type === 'section' && (
+        <h2 id={ariaLabel} className='sr-only'>
+          {label}
+        </h2>
+      )}
       {children}
     </Component>
   )

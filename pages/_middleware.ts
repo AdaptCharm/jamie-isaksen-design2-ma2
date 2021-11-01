@@ -4,9 +4,9 @@ import { NextResponse } from 'next/server'
 export function middleware(req: NextRequest, ev: NextFetchEvent) {
   const ContentSecurityPolicy = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline';
+    script-src 'self' 'unsafe-eval';
     child-src 'none';
-    style-src 'self' 'unsafe-inline' *.googleapis.com;
+    style-src 'self' *.googleapis.com;
     img-src * blob: data:;
     media-src 'none';
     connect-src *;

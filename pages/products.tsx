@@ -23,7 +23,7 @@ const Products = () => {
   const mirrors = filterByValue(featuredCollections, 2)
 
   //Products.
-  const decorations = filterByValue(products, 'decorations')
+  const decorations = filterByValue(products, 'custom')
   const vases = filterByValue(products, 'vases')
 
   return (
@@ -42,11 +42,12 @@ const Products = () => {
             layout='fill'
           />
         </div>
+        <div className='absolute inset-0 bg-white bg-opacity-90 backdrop-filter backdrop-contrast-125' />
         <Container className='relative'>
           <h1 className='text-4xl font-extrabold tracking-tight text-black'>
             Products
           </h1>
-          <p className='mt-4 text-base text-gray-500'>
+          <p className='mt-4 text-base text-black'>
             Commodo commodo esse ipsum irure labore velit laborum adipisicing.
           </p>
         </Container>
@@ -153,7 +154,7 @@ const Products = () => {
                               defaultValue={option.value}
                               defaultChecked={false}
                               type='checkbox'
-                              className='w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500'
+                              className='w-4 h-4 text-gray-600 border-gray-300 rounded focus:ring-gray-500'
                             />
                             <label
                               htmlFor={`filter-${section.id}-${optionIdx}`}
@@ -176,7 +177,7 @@ const Products = () => {
       {/* Product grid filtered by decorations category */}
       <Element type='section' label='Products' className='mt-8'>
         <Container>
-          <div className='grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-4 md:gap-x-8'>
+          <div className='grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 md:gap-x-8'>
             {decorations.map((product) => (
               <ProductCard product={product} key={product.id} />
             ))}

@@ -12,47 +12,36 @@ export const filtersData: FilterTypes[] = [
     id: 'category',
     name: 'Category',
     options: [
-      { value: 'tees', label: 'Tees' },
-      { value: 'crewnecks', label: 'Crewnecks' },
-      { value: 'hats', label: 'Hats' },
-      { value: 'bundles', label: 'Bundles' },
-      { value: 'carry', label: 'Carry' },
-      { value: 'objects', label: 'Objects' },
+      { value: 'lorem', label: 'Lorem' },
+      { value: 'ipsum', label: 'Ipsum' },
+      { value: 'dolor', label: 'Dolor' },
+      { value: 'sit', label: 'Sit' },
+      { value: 'amet', label: 'Amet' },
+      { value: 'consectetur', label: 'Consectetur' },
     ],
   },
   {
     id: 'brand',
     name: 'Brand',
     options: [
-      { value: 'clothing-company', label: 'Clothing Company' },
-      { value: 'fashion-inc', label: 'Fashion Inc.' },
-      { value: 'shoes-n-more', label: "Shoes 'n More" },
-      { value: 'supplies-n-stuff', label: "Supplies 'n Stuff" },
+      { value: 'lorem', label: 'Lorem' },
+      { value: 'ipsum', label: 'Ipsum' },
+      { value: 'dolor', label: 'Dolor' },
+      { value: 'sit', label: 'Sit' },
     ],
   },
   {
     id: 'color',
     name: 'Color',
     options: [
-      { value: 'white', label: 'White' },
-      { value: 'black', label: 'Black' },
-      { value: 'grey', label: 'Grey' },
-      { value: 'blue', label: 'Blue' },
-      { value: 'olive', label: 'Olive' },
-      { value: 'tan', label: 'Tan' },
+      { value: 'lorem', label: 'Lorem' },
+      { value: 'ipsum', label: 'Ipsum' },
     ],
   },
   {
     id: 'sizes',
     name: 'Sizes',
-    options: [
-      { value: 'xs', label: 'XS' },
-      { value: 's', label: 'S' },
-      { value: 'm', label: 'M' },
-      { value: 'l', label: 'L' },
-      { value: 'xl', label: 'XL' },
-      { value: '2xl', label: '2XL' },
-    ],
+    options: [{ value: 'lorem', label: 'Lorem' }],
   },
 ]
 
@@ -62,9 +51,9 @@ export type SortOptionTypes = {
 }
 
 export const sortOptionsData: SortOptionTypes[] = [
-  { name: 'Most Popular', href: '#' },
-  { name: 'Best Rating', href: '#' },
-  { name: 'Newest', href: '#' },
-  { name: 'Price: Low to High', href: '#' },
-  { name: 'Price: High to Low', href: '#' },
+  { name: 'Lorem', href: '#' },
+  { name: 'Ipsum', href: '#' },
+  { name: 'Dolor', href: '#' },
+  { name: 'Sit', href: '#' },
+  { name: 'Amet', href: '#' },
 ]

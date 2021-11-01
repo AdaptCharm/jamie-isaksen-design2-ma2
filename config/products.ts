@@ -1,4 +1,4 @@
-export type CategoryTypes = 'decorations' | 'vases'
+export type CategoryTypes = 'decorations' | 'vases' | 'custom'
 
 export type ProductTypes = {
   id: number
@@ -22,7 +22,7 @@ export const products: ProductTypes[] = [
     description: 'Pariatur pariatur non fugiat',
     color: 'Natural',
     price: '$25',
-    href: '/',
+    href: '#',
     image: {
       src: '/products/decorations/bali-stone-decorations.png',
       alt: 'Bali stone decorations',
@@ -35,7 +35,7 @@ export const products: ProductTypes[] = [
     description: 'Pariatur pariatur non fugiat',
     color: 'Natural',
     price: '$75',
-    href: '/',
+    href: '#',
     image: {
       src: '/products/decorations/buddha-statue-with-incense-and-candle.jpg',
       alt: 'Buddha status with incense and candle',
@@ -48,7 +48,7 @@ export const products: ProductTypes[] = [
     description: 'Pariatur pariatur non fugiat',
     color: 'Natural',
     price: '$25',
-    href: '/',
+    href: '#',
     image: {
       src: '/products/decorations/handmade-macrame-sign.jpg',
       alt: 'Handmade macrame sign',
@@ -61,7 +61,7 @@ export const products: ProductTypes[] = [
     description: 'Pariatur pariatur non fugiat',
     color: 'Natural',
     price: '$50',
-    href: '/',
+    href: '#',
     image: {
       src: '/products/decorations/live-laugh-surf-sign.jpg',
       alt: 'Live laugh surf sign',
@@ -74,7 +74,7 @@ export const products: ProductTypes[] = [
     description: 'Pariatur pariatur non fugiat',
     color: 'Natural',
     price: '$75',
-    href: '/',
+    href: '#',
     image: {
       src: '/products/vases/green-foliage-with-wooden-vases.jpg',
       alt: 'Green foliage with wooden vases',
@@ -87,7 +87,7 @@ export const products: ProductTypes[] = [
     description: 'Pariatur pariatur non fugiat',
     color: 'Natural',
     price: '$100',
-    href: '/',
+    href: '#',
     image: {
       src: '/products/vases/purple-foliage-with-ceramic-vase.png',
       alt: 'Purple foliage with ceramic vase',
@@ -100,7 +100,7 @@ export const products: ProductTypes[] = [
     description: 'Pariatur pariatur non fugiat',
     color: 'Natural',
     price: '$50',
-    href: '/',
+    href: '#',
     image: {
       src: '/products/vases/clear-glass-vase-with-a-wooden-cup-of-tea.png',
       alt: 'Clear glass vase with a wooden cup of tea',
@@ -113,10 +113,49 @@ export const products: ProductTypes[] = [
     description: 'Pariatur pariatur non fugiat',
     color: 'Natural',
     price: '$25',
-    href: '/',
+    href: '#',
     image: {
       src: '/products/vases/glass-vase-with-green-leafs.png',
       alt: 'Glass vase with green leafs',
+    },
+  },
+  {
+    id: 9,
+    category: 'custom',
+    name: 'Black crow',
+    description: 'Pariatur pariatur non fugiat',
+    color: 'Black',
+    price: '$25',
+    href: '#',
+    image: {
+      src: '/products/decorations/black-crow.png',
+      alt: 'Black crow',
+    },
+  },
+  {
+    id: 10,
+    category: 'custom',
+    name: 'Exotic stones',
+    description: 'Pariatur pariatur non fugiat',
+    color: 'Natural',
+    price: '$50',
+    href: '#',
+    image: {
+      src: '/products/decorations/exotic-stones.png',
+      alt: 'Exotic stones',
+    },
+  },
+  {
+    id: 11,
+    category: 'custom',
+    name: 'Mix of decorations',
+    description: 'Pariatur pariatur non fugiat',
+    color: 'Natural',
+    price: '$75',
+    href: '#',
+    image: {
+      src: '/products/decorations/mix-of-decorations.png',
+      alt: 'Mix of decorations',
     },
   },
 ]

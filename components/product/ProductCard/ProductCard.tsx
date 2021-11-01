@@ -2,6 +2,8 @@ import { FC } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
+import { HeartIcon } from '@heroicons/react/outline'
+
 import { motion } from 'framer-motion'
 import { variants } from '@config/motion'
 
@@ -43,8 +45,17 @@ const ProductCard: FC<Props> = ({ className, product }) => {
           </a>
         </Link>
       </h3>
-      <p className='mt-1 text-sm text-gray-500'>{product.color}</p>
-      <p className='mt-1 text-sm font-medium text-gray-900'>{product.price}</p>
+      <div className='flex items-center justify-between'>
+        <div>
+          <p className='mt-1 text-sm text-gray-500'>{product.color}</p>
+          <p className='mt-1 text-sm font-medium text-gray-900'>
+            {product.price}
+          </p>
+        </div>
+        <div>
+          <HeartIcon className='w-6 h-6 text-gray-600' />
+        </div>
+      </div>
     </motion.div>
   )
 }

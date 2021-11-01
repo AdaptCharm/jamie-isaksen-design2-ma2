@@ -6,7 +6,7 @@ export function middleware(req: NextRequest, ev: NextFetchEvent) {
     default-src 'self';
     script-src 'self' 'unsafe-eval';
     child-src 'none';
-    style-src 'self' *.googleapis.com;
+    style-src 'self' 'unsafe-inline' *.googleapis.com;
     img-src * blob: data:;
     media-src 'none';
     connect-src *;

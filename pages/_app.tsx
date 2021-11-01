@@ -19,11 +19,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <>
       <Head />
       <Layout pageProps={pageProps}>
-        <AnimatePresence
-          exitBeforeEnter
-          // initial={false}
-          // onExitComplete={() => window.scrollTo(0, 0)}
-        >
+        <AnimatePresence exitBeforeEnter>
           <Component {...pageProps} />
         </AnimatePresence>
       </Layout>

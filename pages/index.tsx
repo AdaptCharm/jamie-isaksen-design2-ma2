@@ -8,7 +8,7 @@ import {
 } from '@heroicons/react/outline'
 import { motion } from 'framer-motion'
 
-import { featuredCollections, products } from '@config/products'
+import { products } from '@config/products'
 import { variants } from '@config/motion'
 
 import { filterByValue } from '@lib/collections'
@@ -46,13 +46,13 @@ const stagger = {
   },
 }
 
-const Home = () => {
+export default function Home() {
   //Products.
   const decorations = filterByValue(products, 'decorations')
   const vases = filterByValue(products, 'vases')
 
   return (
-    <motion.div initial='initial' animate='animate' exit={{ opacity: 0 }}>
+    <>
       {/* Hero section */}
       <FadeInWhenVisible>
         <div className='relative'>
@@ -241,9 +241,6 @@ const Home = () => {
                           aria-hidden='true'
                         />
                       </span>
-                      <div className='flex justify-center'>
-                        {incentive.icon}
-                      </div>
                       <div className='mt-3 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0'>
                         <h3 className='text-sm font-medium text-gray-900'>
                           {incentive.name}
@@ -321,10 +318,8 @@ const Home = () => {
           </div>
         </div>
       </FadeInWhenVisible>
-    </motion.div>
+    </>
   )
 }
-
-export default Home
 
 Home.Layout = Layout

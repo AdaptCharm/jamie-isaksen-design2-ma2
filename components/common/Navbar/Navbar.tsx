@@ -1,4 +1,4 @@
-import { FC, useRef } from 'react'
+import { FC } from 'react'
 import Link from 'next/link'
 
 import { Popover } from '@headlessui/react'
@@ -18,18 +18,11 @@ const navigation = {
 }
 
 const Navbar: FC = () => {
-  const hideRef = useRef<HTMLDivElement>(null)
-  const showRef = useRef<HTMLButtonElement>(null)
-
   return (
     <Popover className='fixed inset-x-0 z-50 bg-white backdrop-blur backdrop-filter bg-opacity-10'>
       {({ open }) => (
         <>
-          <div
-            className='px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 focus:outline-none'
-            ref={hideRef}
-            tabIndex={-1}
-          >
+          <div className='px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 focus:outline-none'>
             <div>
               <div className='flex items-center justify-between h-16'>
                 {/* Left nav */}
@@ -90,10 +83,7 @@ const Navbar: FC = () => {
 
                     {/* Mobile menu */}
                     <div className='flex items-center flex-1 lg:hidden'>
-                      <Popover.Button
-                        className='px-2 py-1.5 -ml-2 text-black bg-black rounded-full bg-opacity-5 hover:bg-opacity-10'
-                        ref={showRef}
-                      >
+                      <Popover.Button className='px-2 py-1.5 -ml-2 text-black bg-black rounded-full bg-opacity-5 hover:bg-opacity-10'>
                         <span className='sr-only'>Open menu</span>
                         <MenuIcon className='w-6 h-6' aria-hidden='true' />
                       </Popover.Button>
